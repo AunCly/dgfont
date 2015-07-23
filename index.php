@@ -15,11 +15,11 @@
 
 		$i=0;
 		while ($i < 10) {
-				echo '<div class="font" id="'.$fonts['items'][$i]['family'].'">';
-					echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$fonts['items'][$i]['family'].'">';
-					echo '<span style="font-family : \''.$fonts['items'][$i]['family'].'\';" value="font">I\'am AunCly</span>';
-				echo'</div>';
-			$i++;
+			echo '<div class="font" id="'.$fonts['items'][$i]['family'].'" draggable="true">';
+				echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$fonts['items'][$i]['family'].'">';
+				echo '<span style="font-family : \''.$fonts['items'][$i]['family'].'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
+			echo'</div>';
+		$i++;
 		}
 		?>
 
