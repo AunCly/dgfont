@@ -1,38 +1,41 @@
 $(document).ready(function(){
-	interact('.font').draggable({});
-	interact('.font')
-		.on('dragstart', test)
-		.on('dragstart', test4)
-		.on('dragstop', testt);
-	interact('p, h2')
-		.on('dragenter', test2)
-		.on('dragleave', test3)
-	  	.dropzone({
-	    	ondrop: function (event) {
-		      	console.log(event.relatedTarget.id);
-		      	$(event.target).css('font-family', event.relatedTarget.id);
-		      	$(event.target).css('border', 'none');
-		      	$(event.relatedTarget).css('border', 'none');
-	    	}
-	  	});
+	var dragged;
+	document.addEventListener("drag", function(event) {
+
+	}, false);
+
+	document.addEventListener("dragstart", function(event) {
+		    // Récupération de l'elmts en cours de déplacement
+		    dragged = event.target;
+		    dragged.style.opacity = .5;
+	}, false);
+
+	document.addEventListener("dragend", function(event) {
+		dragged.style.opacity = "";
+	}, false);
+
+	document.addEventListener("dragover", function(event) {
+		event.preventDefault();
+	}, false);
+
+	document.addEventListener("dragenter", function(event) {
+		if ( event.target.className == "dropzone" ) {
+			event.target.style.border = "solid 1px #F1433F";
+		}
+	}, false);
+
+	document.addEventListener("dragleave", function(event) {
+		if ( event.target.className == "dropzone" ) {
+			event.target.style.border = "";
+		}
+	}, false);
+
+	document.addEventListener("drop", function(event) {
+	    // prevent default action (open as link for some elements)
+	    event.preventDefault();
+	    if (event.target.className == "dropzone") {
+	    	event.target.style.border = "";
+	    	event.target.style.fontFamily = dragged.id;
+	    }
+	}, false);
 });
-
-function test (event) {
-		$(event.target).css('border', 'solid 1px #F1433F');
-}
-
-function testt (event) {
-		$(event.target).css('border', 'none');
-}
-
-function test2 (event){
-	$(event.target).css('border', 'solid 1px #F1433F');
-}
-
-function test3 (event){
-	$(event.target).css('border', 'none');
-}
-
-function test4 (event){
-	$("h2, p").css('border', 'solid 1px #F1433F');
-}
