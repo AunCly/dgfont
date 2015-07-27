@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-lg-12 well">
 				<?php
-				$ApiKey = 'AIzaSyAEOdP6KvoKRWVtcv3qEWiV3eN_v5xnsEg';
+				$ApiKey = 'your_api_key';
 				$fonts = file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=$ApiKey", true);
 				$fonts = json_decode($fonts, true);
 
@@ -52,6 +52,10 @@
 						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 						</p>
 					</div>
+					<blockquote>
+					  	<p class="dropzone">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+					  	<small class="dropzone">Someone famous in <cite title="Source Title" class="dropzone">Source Title</cite></small>
+					</blockquote>
 				</div>
 			</div>
 			<p>Made with &#9825; by <a href="aurelien-clugery.fr">AunCly</a></p>
