@@ -12,38 +12,50 @@
 	</head>
 	<body>
 	<div class="container">
-		<div class="container">
-			<h1>Drag'n'Drop font</h1>
-			<p>This is a simple drag'n'drop system to apply a font on an html element on the page.</p>
-		</div>
-		<div class="well">
-			<?php
-			$ApiKey = 'your_api_key';
-			$fonts = file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=$ApiKey", true);
-			$fonts = json_decode($fonts, true);
-
-			$i=0;
-			while ($i < 10) {
-				echo '<div class="font" id="'.$fonts['items'][$i]['family'].'" draggable="true">';
-					echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$fonts['items'][$i]['family'].'">';
-					echo '<span style="font-family : \''.$fonts['items'][$i]['family'].'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
-				echo'</div>';
-			$i++;
-			}
-			?>
-			<h2 class="dropzone">Title</h2>
-			<div id="text" style="display:inline-block; width 400px;">
-				<p class="dropzone">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				</p>
+		<div class="row">
+			<div class="well">
+				<h1>Drag'n'Drop font</h1>
+				<p>This is a simple drag'n'drop system to apply a font on an html element on the page.</p>
 			</div>
+			<div class="col-lg-12 well">
+				<?php
+				$ApiKey = 'AIzaSyAEOdP6KvoKRWVtcv3qEWiV3eN_v5xnsEg';
+				$fonts = file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=$ApiKey", true);
+				$fonts = json_decode($fonts, true);
+
+				$i=0;
+				echo '<div class="col-lg-4">';
+				while ($i < 10) {
+					echo '<div class="font" id="'.$fonts['items'][$i]['family'].'" draggable="true">';
+						echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$fonts['items'][$i]['family'].'">';
+						echo '<span style="font-family : \''.$fonts['items'][$i]['family'].'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
+					echo'</div>';
+				$i++;
+				}
+				echo '</div>';
+				?>
+				<div class="col-lg-8 well-reverse">
+					<?php 
+					$i=1;
+					while ($i<=6) {
+						echo '<h'.$i.' class="dropzone">Title h'.$i.'</h'.$i.'>';
+						$i++;
+					}
+					?>
+					<div id="text" style="display:inline-block; width 400px;">
+						<p class="dropzone">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+						tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+						quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+						consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+						cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+						proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+						</p>
+					</div>
+				</div>
+			</div>
+			<p>Made with &#9825; by <a href="aurelien-clugery.fr">AunCly</a></p>
 		</div>
-		<p>Made with &#9825; by <a href="aurelien-clugery.fr">AunCly</a></p>
 	</div>
 	</body>
 </html>
