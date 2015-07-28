@@ -8,6 +8,7 @@
 	    <link rel="stylesheet" href="css/bootstrap.css" media="screen">
 		<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
 	<body>
@@ -23,15 +24,100 @@
 				$fonts = file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=$ApiKey", true);
 				$fonts = json_decode($fonts, true);
 
-				$i=0;
-				echo '<div class="col-lg-4">';
-				while ($i < 10) {
-					echo '<div class="font" id="'.$fonts['items'][$i]['family'].'" draggable="true">';
-						echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$fonts['items'][$i]['family'].'">';
-						echo '<span style="font-family : \''.$fonts['items'][$i]['family'].'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
-					echo'</div>';
-				$i++;
+				$serif = array();
+				$sansserif = array();
+				$monospace = array();
+				$cursive = array();
+				$fantasy = array(); 
+				$i = 0;
+
+				while ($i < 50) {
+					if ($fonts['items'][$i]['category'] == "sans-serif") {
+						array_push($sansserif, $fonts['items'][$i]['family']);
+					}
+					elseif ($fonts['items'][$i]['category'] == "serif") {
+				 		array_push($serif, $fonts['items'][$i]['family']);
+					}
+					elseif ($fonts['items'][$i]['category'] == "cursive") {
+						array_push($cursive, $fonts['items'][$i]['family']);
+					}
+					elseif ($fonts['items'][$i]['category'] == "fantasy") {
+						array_push($fantasy, $fonts['items'][$i]['family']);
+					}
+					elseif ($fonts['items'][$i]['category'] == "monospace") {
+						array_push($monospace, $fonts['items'][$i]['family']);
+					}
+					$i++;
 				}
+
+				$i=0;
+				echo '<div class="col-lg-4">'; ?>
+				<ul class="nav nav-tabs">
+				 	<li class="active"><a href="#serif" data-toggle="tab" aria-expanded="false">Serif</a></li>
+				  	<li class=""><a href="#sansserif" data-toggle="tab" aria-expanded="true">Sans-Serif</a></li>
+					<li class=""><a href="#cursive" data-toggle="tab" aria-expanded="true">Cursive</a></li>
+					<li class=""><a href="#fantasy" data-toggle="tab" aria-expanded="true">Fantasy</a></li>
+					<li class=""><a href="#monospace" data-toggle="tab" aria-expanded="true">Monospace</a></li>
+				</ul>
+
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade active in" id="serif">
+						<?php 
+						foreach ($serif as $key) {
+							echo '<div class="font" id="'.$key.'" draggable="true">';
+								echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$key.'">';
+								echo '<span style="font-family : \''.$key.'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
+							echo'</div>';
+						$i++;
+						}
+						?>
+					</div>
+					<div class="tab-pane fade" id="sansserif">
+						<?php 
+						foreach ($sansserif as $key) {
+							echo '<div class="font" id="'.$key.'" draggable="true">';
+								echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$key.'">';
+								echo '<span style="font-family : \''.$key.'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
+							echo'</div>';
+						$i++;
+						}
+						?>
+					</div>
+					<div class="tab-pane fade" id="cursive">
+						<?php 
+						foreach ($cursive as $key) {
+							echo '<div class="font" id="'.$key.'" draggable="true">';
+								echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$key.'">';
+								echo '<span style="font-family : \''.$key.'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
+							echo'</div>';
+						$i++;
+						}
+						?>
+					</div>
+					<div class="tab-pane fade" id="fantasy">
+						<?php 
+						foreach ($fantasy as $key) {
+							echo '<div class="font" id="'.$key.'" draggable="true">';
+								echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$key.'">';
+								echo '<span style="font-family : \''.$key.'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
+							echo'</div>';
+						$i++;
+						}
+						?>
+					</div>
+					<div class="tab-pane fade" id="monospace">
+						<?php 
+						foreach ($monospace as $key) {
+							echo '<div class="font" id="'.$key.'" draggable="true">';
+								echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$key.'">';
+								echo '<span style="font-family : \''.$key.'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
+							echo'</div>';
+						$i++;
+						}
+						?>
+					</div>
+				</div>
+			<?php 
 				echo '</div>';
 				?>
 				<div class="col-lg-8 well-reverse">
@@ -63,3 +149,5 @@
 	</div>
 	</body>
 </html>
+
+
