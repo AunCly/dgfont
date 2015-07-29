@@ -20,7 +20,7 @@
 			</div>
 			<div class="col-lg-12 well">
 				<?php
-				$ApiKey = 'AIzaSyAEOdP6KvoKRWVtcv3qEWiV3eN_v5xnsEg';
+				$ApiKey = 'your_api_key';
 				$fonts = file_get_contents("https://www.googleapis.com/webfonts/v1/webfonts?key=$ApiKey", true);
 				$fonts = json_decode($fonts, true);
 
