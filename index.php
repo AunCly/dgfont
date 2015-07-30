@@ -38,7 +38,7 @@
 				}
 
 				$i=0;
-				echo '<div class="col-lg-4">'; ?>
+				echo '<div class="col-lg-5">'; ?>
 				<ul class="nav nav-tabs">
 				 	<li class="active"><a href="#serif" data-toggle="tab" aria-expanded="false">Serif</a></li>
 				  	<li class=""><a href="#sans-serif" data-toggle="tab" aria-expanded="true">Sans-Serif</a></li>
@@ -55,10 +55,16 @@
 							<div class="tab-pane fade <?php if($j == 0) echo 'active in'; ?>" id="<?php echo $valueOne; ?>">
 								<?php 
 								foreach ($fontArray[$keyOne] as $key) {
-									echo '<div class="font" id="'.$key.'" draggable="true">';
-										echo '<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$key.'">';
-										echo '<span style="font-family : \''.$key.'\';" value="font">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>';
-									echo'</div>';
+									echo '
+									<div class="panel panel-success">
+									  	<div class="panel-heading">
+									    	<h3 class="panel-title">'.$key.'</h3>
+									  	</div>
+									  	<div class="panel-body font" id="'.$key.'" draggable="true">
+									  		<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family='.$key.'">
+									   		<span style="font-family : \''.$key.'\';">Grumpy wizards make toxic brew for the evil Queen and Jack.</span>
+									  	</div>
+									</div>';
 								$i++;
 								}
 								?>
@@ -69,7 +75,7 @@
 			<?php 
 				echo '</div>';
 				?>
-				<div class="col-lg-8 well-reverse">
+				<div class="col-lg-7 well-reverse">
 					<?php 
 					$i=1;
 					while ($i<=6) {
