@@ -6,7 +6,6 @@
 	display : inline-block;
 	margin : 10px;
 	padding : 10px;
-	width : 150px;
 }
 .font:hover{
 	cursor : move;
@@ -18,4 +17,9 @@
 
 .well-reverse{
 	background-color : #fff;
+}
+
+#myTabContent{
+	height : 500px;
+	overflow : scroll;
 }
