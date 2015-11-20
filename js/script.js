@@ -1,8 +1,6 @@
 $(document).ready(function(){
 	var dragged;
-	document.addEventListener("drag", function(event) {
-
-	}, false);
+	document.addEventListener("drag", function(event) {}, false);
 
 	document.addEventListener("dragstart", function(event) {
 		    // Récupération de l'elmts en cours de déplacement

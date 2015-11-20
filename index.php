@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>D'n'G Font</title>
+		<title>Drag'n'Drop Font</title>
 		<meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -48,12 +48,12 @@
 				</ul>
 
 				<div id="myTabContent" class="tab-content">
-					<?php 
+					<?php
 						$j=0;
-						foreach ($tabCateg as $keyOne => $valueOne) { 
+						foreach ($tabCateg as $keyOne => $valueOne) {
 							$j++; ?>
 							<div class="tab-pane fade <?php if($j == 0) echo 'active in'; ?>" id="<?php echo $valueOne; ?>">
-								<?php 
+								<?php
 								foreach ($fontArray[$keyOne] as $key) {
 									echo '
 									<div class="panel panel-success">
@@ -72,11 +72,11 @@
 						<?php }
 					?>
 				</div>
-			<?php 
+			<?php
 				echo '</div>';
 				?>
 				<div class="col-lg-7 well-reverse">
-					<?php 
+					<?php
 					$i=1;
 					while ($i<=6) {
 						echo '<h'.$i.' class="dropzone">Title h'.$i.'</h'.$i.'>';
@@ -99,10 +99,8 @@
 					</blockquote>
 				</div>
 			</div>
-			<p>Made with &#9825; by <a href="aurelien-clugery.fr">AunCly</a></p>
+			<p>Made with &#9825; by <a href="aurelien-clugery.fr">AunCly</a> Le 20/11/2015</p>
 		</div>
 	</div>
 	</body>
 </html>
-
-
