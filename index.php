@@ -15,7 +15,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="well">
-				<h1>Drag'n'Drop font</h1>
+				<h1>Drag'n'Drop Fonts</h1>
 				<p>This is a simple drag'n'drop system to apply a font on an html element on the page.</p>
 			</div>
 			<div class="col-lg-12 well">
